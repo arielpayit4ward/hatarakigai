@@ -82,6 +82,7 @@ export function stepEntries(j: Journal, id: string): string[] {
   const v = j.steps[id]?.v ?? {};
   if (id === "11") return []; // mapping only, shown elsewhere
   if (id === "9") return flatten([v.offer, v.learned]);
+  if (id === "3") return flatten(v.values?.chosen ?? []);
   return flatten(Object.values(v));
 }
 
