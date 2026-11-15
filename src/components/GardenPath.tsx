@@ -20,7 +20,7 @@ export function GardenPath() {
         const st = j.steps[s.id];
         const filled = !!(st?.done || st?.paper || hasContent(j, s.id));
         const offset = ["ml-[8%]", "ml-[38%]", "ml-[58%]", "ml-[30%]"][i % 4];
-        const showPhase = i === 0 || steps[i - 1].phase !== s.phase;
+        const showPhase = i === 0 || steps[i - 1]!.phase !== s.phase;
         return (
           <li key={s.id} className="relative">
             {showPhase && (

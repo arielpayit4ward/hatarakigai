@@ -22,7 +22,7 @@ function StepPage() {
   const { id } = Route.useParams();
   const j = useJournal();
   const idx = steps.findIndex((s) => s.id === id);
-  const step = steps[idx];
+  const step = steps[idx]!;
   const st = j.steps[id];
   const prev = steps[idx - 1];
   const next = steps[idx + 1];

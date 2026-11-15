@@ -105,7 +105,7 @@ export function FieldView({ stepId, field }: { stepId: string; field: Field }) {
   }
 }
 
-function ListField({ label, value, min, placeholder, onChange }: { label?: string; value: string[]; min: number; placeholder: string; onChange: (v: string[]) => void }) {
+function ListField({ label, value, min, placeholder, onChange }: { label?: string | undefined; value: string[]; min: number; placeholder: string; onChange: (v: string[]) => void }) {
   const rows = Math.max(min, value.length + (value[value.length - 1]?.trim() ? 1 : 0));
   return (
     <div>

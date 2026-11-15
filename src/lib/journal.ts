@@ -58,7 +58,7 @@ export function setStepFlag(id: string, flag: "done" | "paper", value: boolean) 
 }
 
 export function getRef(j: Journal, ref: string): any {
-  const [id, key] = ref.split(".");
+  const [id = "", key = ""] = ref.split(".");
   return j.steps[id]?.v?.[key];
 }
 
@@ -79,7 +79,7 @@ export function flatten(value: any): string[] {
 }
 
 export function stepEntries(j: Journal, id: string): string[] {
-  const v = j.steps[id]?.v ?? {};
+  const v: any = j.steps[id]?.v ?? {};
   if (id === "11") return []; // mapping only, shown elsewhere
   if (id === "9") return flatten([v.offer, v.learned]);
   if (id === "3") return flatten(v.values?.chosen ?? []);
@@ -118,7 +118,7 @@ import { SDGS } from "@/content/journey";
 export function sdgCounts(j: Journal) {
   const map: Record<string, number[]> = getRef(j, "11.sdg") ?? {};
   const counts = SDGS.map((goal, i) => ({ goal, i, count: 0 }));
-  Object.values(map).forEach((arr) => arr.forEach((g) => counts[g] && counts[g].count++));
+  Object.values(map).forEach((arr) => arr.forEach((g) => { const c = counts[g]; if (c) c.count++; }));
   return counts.sort((a, b) => b.count - a.count);
 }
 
