@@ -5,6 +5,7 @@ import { steps, copy } from "@/content/journey";
 import { download, emptyJournal, flatten, setJournal, stepEntries, toMarkdown, useJournal, getRef, type Journal } from "@/lib/journal";
 
 export const Route = createFileRoute("/journal")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [{ title: "My Journal · Work Worth Doing" }, { name: "description", content: "Print your pages, export as Markdown, save or restore a backup." }, { property: "og:title", content: "My Journal · Work Worth Doing" }, { property: "og:description", content: "Print your pages, export as Markdown, save or restore a backup." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }),
   component: JournalPage,
 });
