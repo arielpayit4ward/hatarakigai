@@ -10,12 +10,42 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CompassRouteImport } from './routes/compass'
+import { Route as JournalRouteImport } from './routes/journal'
+import { Route as OneWordRouteImport } from './routes/one-word'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as TableRouteImport } from './routes/table'
 import { Route as ThresholdRouteImport } from './routes/threshold'
 import { Route as StepIdRouteImport } from './routes/step.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompassRoute = CompassRouteImport.update({
+  id: '/compass',
+  path: '/compass',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JournalRoute = JournalRouteImport.update({
+  id: '/journal',
+  path: '/journal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OneWordRoute = OneWordRouteImport.update({
+  id: '/one-word',
+  path: '/one-word',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TableRoute = TableRouteImport.update({
+  id: '/table',
+  path: '/table',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ThresholdRoute = ThresholdRouteImport.update({
@@ -31,30 +61,75 @@ const StepIdRoute = StepIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/compass': typeof CompassRoute
+  '/journal': typeof JournalRoute
+  '/one-word': typeof OneWordRoute
+  '/privacy': typeof PrivacyRoute
+  '/table': typeof TableRoute
   '/threshold': typeof ThresholdRoute
   '/step/$id': typeof StepIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/compass': typeof CompassRoute
+  '/journal': typeof JournalRoute
+  '/one-word': typeof OneWordRoute
+  '/privacy': typeof PrivacyRoute
+  '/table': typeof TableRoute
   '/threshold': typeof ThresholdRoute
   '/step/$id': typeof StepIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/compass': typeof CompassRoute
+  '/journal': typeof JournalRoute
+  '/one-word': typeof OneWordRoute
+  '/privacy': typeof PrivacyRoute
+  '/table': typeof TableRoute
   '/threshold': typeof ThresholdRoute
   '/step/$id': typeof StepIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/threshold' | '/step/$id'
+  fullPaths:
+    | '/'
+    | '/compass'
+    | '/journal'
+    | '/one-word'
+    | '/privacy'
+    | '/table'
+    | '/threshold'
+    | '/step/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/threshold' | '/step/$id'
-  id: '__root__' | '/' | '/threshold' | '/step/$id'
+  to:
+    | '/'
+    | '/compass'
+    | '/journal'
+    | '/one-word'
+    | '/privacy'
+    | '/table'
+    | '/threshold'
+    | '/step/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/compass'
+    | '/journal'
+    | '/one-word'
+    | '/privacy'
+    | '/table'
+    | '/threshold'
+    | '/step/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CompassRoute: typeof CompassRoute
+  JournalRoute: typeof JournalRoute
+  OneWordRoute: typeof OneWordRoute
+  PrivacyRoute: typeof PrivacyRoute
+  TableRoute: typeof TableRoute
   ThresholdRoute: typeof ThresholdRoute
   StepIdRoute: typeof StepIdRoute
 }
@@ -66,6 +141,41 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compass': {
+      id: '/compass'
+      path: '/compass'
+      fullPath: '/compass'
+      preLoaderRoute: typeof CompassRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/journal': {
+      id: '/journal'
+      path: '/journal'
+      fullPath: '/journal'
+      preLoaderRoute: typeof JournalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/one-word': {
+      id: '/one-word'
+      path: '/one-word'
+      fullPath: '/one-word'
+      preLoaderRoute: typeof OneWordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/table': {
+      id: '/table'
+      path: '/table'
+      fullPath: '/table'
+      preLoaderRoute: typeof TableRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/threshold': {
@@ -87,6 +197,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CompassRoute: CompassRoute,
+  JournalRoute: JournalRoute,
+  OneWordRoute: OneWordRoute,
+  PrivacyRoute: PrivacyRoute,
+  TableRoute: TableRoute,
   ThresholdRoute: ThresholdRoute,
   StepIdRoute: StepIdRoute,
 }
