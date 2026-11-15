@@ -40,7 +40,7 @@ function Home() {
           {[
             { to: "/table" as const, t: "The Design Table", d: "Your words, gathered into four circles." },
             { to: "/compass" as const, t: "The Compass Log", d: "Toward or away from meaning?" },
-            { to: "/one-word" as const, t: "One Sentence", d: "What makes work feel worth doing?" },
+            { to: "/one-sentence" as const, t: "One Sentence", d: "What makes work feel worth doing?" },
           ].map((c) => (
             <Link key={c.to} to={c.to} className="journal-card block p-5 transition-transform hover:-translate-y-0.5">
               <h3 className="text-2xl">{c.t}</h3><p className="text-muted-foreground">{c.d}</p>
