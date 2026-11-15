@@ -141,7 +141,7 @@ function IdeaSpark() {
   };
 
   return (
-    <div className="mt-6">
+    <div className="mt-12">
       {!open && (
         <div className="text-center">
           <button type="button" className="btn" onClick={roll}>✿ {copy.idea.button}</button>
