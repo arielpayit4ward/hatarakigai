@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CompassRouteImport } from './routes/compass'
 import { Route as JournalRouteImport } from './routes/journal'
+import { Route as OneSentenceRouteImport } from './routes/one-sentence'
 import { Route as OneWordRouteImport } from './routes/one-word'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as TableRouteImport } from './routes/table'
@@ -31,6 +32,11 @@ const CompassRoute = CompassRouteImport.update({
 const JournalRoute = JournalRouteImport.update({
   id: '/journal',
   path: '/journal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OneSentenceRoute = OneSentenceRouteImport.update({
+  id: '/one-sentence',
+  path: '/one-sentence',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OneWordRoute = OneWordRouteImport.update({
@@ -63,6 +69,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/compass': typeof CompassRoute
   '/journal': typeof JournalRoute
+  '/one-sentence': typeof OneSentenceRoute
   '/one-word': typeof OneWordRoute
   '/privacy': typeof PrivacyRoute
   '/table': typeof TableRoute
@@ -73,6 +80,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/compass': typeof CompassRoute
   '/journal': typeof JournalRoute
+  '/one-sentence': typeof OneSentenceRoute
   '/one-word': typeof OneWordRoute
   '/privacy': typeof PrivacyRoute
   '/table': typeof TableRoute
@@ -84,6 +92,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/compass': typeof CompassRoute
   '/journal': typeof JournalRoute
+  '/one-sentence': typeof OneSentenceRoute
   '/one-word': typeof OneWordRoute
   '/privacy': typeof PrivacyRoute
   '/table': typeof TableRoute
@@ -96,6 +105,7 @@ export interface FileRouteTypes {
     | '/'
     | '/compass'
     | '/journal'
+    | '/one-sentence'
     | '/one-word'
     | '/privacy'
     | '/table'
@@ -106,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/compass'
     | '/journal'
+    | '/one-sentence'
     | '/one-word'
     | '/privacy'
     | '/table'
@@ -116,6 +127,7 @@ export interface FileRouteTypes {
     | '/'
     | '/compass'
     | '/journal'
+    | '/one-sentence'
     | '/one-word'
     | '/privacy'
     | '/table'
@@ -127,6 +139,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CompassRoute: typeof CompassRoute
   JournalRoute: typeof JournalRoute
+  OneSentenceRoute: typeof OneSentenceRoute
   OneWordRoute: typeof OneWordRoute
   PrivacyRoute: typeof PrivacyRoute
   TableRoute: typeof TableRoute
@@ -155,6 +168,13 @@ declare module '@tanstack/react-router' {
       path: '/journal'
       fullPath: '/journal'
       preLoaderRoute: typeof JournalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/one-sentence': {
+      id: '/one-sentence'
+      path: '/one-sentence'
+      fullPath: '/one-sentence'
+      preLoaderRoute: typeof OneSentenceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/one-word': {
@@ -199,6 +219,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CompassRoute: CompassRoute,
   JournalRoute: JournalRoute,
+  OneSentenceRoute: OneSentenceRoute,
   OneWordRoute: OneWordRoute,
   PrivacyRoute: PrivacyRoute,
   TableRoute: TableRoute,
