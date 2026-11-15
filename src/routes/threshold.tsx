@@ -4,6 +4,7 @@ import { ESSAY_URL, threshold } from "@/content/journey";
 import { updateJournal, useJournal } from "@/lib/journal";
 
 export const Route = createFileRoute("/threshold")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [{ title: "The threshold · Work Worth Doing" }, { name: "description", content: "A welcome to ikigai and hatarakigai, with an optional five pillars warm up." }, { property: "og:title", content: "The threshold · Work Worth Doing" }, { property: "og:description", content: "A welcome to ikigai and hatarakigai, with an optional five pillars warm up." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }),
   component: Threshold,
 });

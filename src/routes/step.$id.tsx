@@ -5,6 +5,7 @@ import { steps } from "@/content/journey";
 import { setStepFlag, useJournal } from "@/lib/journal";
 
 export const Route = createFileRoute("/step/$id")({
+  staticData: { sitemap: true },
   loader: ({ params }) => {
     const step = steps.find((s) => s.id === params.id);
     if (!step) throw notFound();

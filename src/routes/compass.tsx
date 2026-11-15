@@ -5,6 +5,7 @@ import { copy } from "@/content/journey";
 import { updateJournal, useJournal } from "@/lib/journal";
 
 export const Route = createFileRoute("/compass")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [{ title: "The Compass Log · Work Worth Doing" }, { name: "description", content: "Log each small experiment and notice whether it moves you toward or away from meaning." }, { property: "og:title", content: "The Compass Log · Work Worth Doing" }, { property: "og:description", content: "Log each small experiment and notice whether it moves you toward or away from meaning." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }),
   component: Compass,
 });
