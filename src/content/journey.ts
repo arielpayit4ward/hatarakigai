@@ -227,6 +227,8 @@ export const copy = {
     title: "One Sentence",
     question: "In one sentence, what makes work feel worth doing, for you?",
     share: "Share your sentence in the essay comments",
+    delete: "Delete sentence",
+    confirmDelete: "Delete this sentence? This cannot be undone.",
   },
   idea: {
     button: "Give me an AI idea",

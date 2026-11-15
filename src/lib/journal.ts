@@ -36,6 +36,10 @@ export function setJournal(next: Journal) {
 
 export function updateJournal(fn: (j: Journal) => Journal) { setJournal(fn(read())); }
 
+export function deleteSentence(index: number) {
+  updateJournal((j) => ({ ...j, words: j.words.filter((_, i) => i !== index) }));
+}
+
 export function useJournal(): Journal {
   return useSyncExternalStore(
     (l) => { listeners.add(l); return () => listeners.delete(l); },
