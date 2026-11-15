@@ -222,6 +222,6 @@ export const copy = {
   },
   table: {
     title: "The Design Table",
-    intro: "This four circle view is a tool for designing work, not a map of your purpose. Your ikigai is something you feel. Here, your own words gather into four circles. Tap an overlap to see two side by side.",
+    intro: "This Venn diagram is a tool for designing work, not a map of your purpose. Your ikigai is something you feel. Here, your own words gather into four ellipses, so every one of the fifteen overlaps can be shown. Tap any space to see those circles side by side.",
   },
 };
