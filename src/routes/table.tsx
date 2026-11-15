@@ -57,7 +57,7 @@ function Table() {
                   <g key={e.c + "l"} role="button" tabIndex={0} aria-pressed={on} aria-label={`${e.label}, ${e.c}`} className="cursor-pointer"
                     onClick={() => pick([e.c], e.label)} onKeyDown={(ev) => ev.key === "Enter" && pick([e.c], e.label)}>
                     <text x={e.lx} y={e.ly} textAnchor="middle" fontFamily="var(--font-serif)" fontWeight="700" fontSize="40" fill="var(--ink)" textDecoration={on ? "underline" : undefined}>
-                      <tspan x={e.lx}>[{e.letter}] {lines[0]}</tspan><tspan x={e.lx} dy="44">{lines[1]}</tspan>
+                      <tspan x={e.lx}>{lines[0]}</tspan><tspan x={e.lx} dy="44">{lines[1]}</tspan>
                     </text>
                   </g>
                 );
@@ -68,15 +68,13 @@ function Table() {
                 return (
                   <g key={r.name} role="button" tabIndex={0} aria-pressed={on} aria-label={`${r.name}: ${r.sets.join(", ")}`} className="cursor-pointer"
                     onClick={() => pick(r.sets, r.name)} onKeyDown={(ev) => ev.key === "Enter" && pick(r.sets, r.name)}>
-                    <rect x={r.x - (centre ? 170 : 105)} y={r.y - 42} width={centre ? 340 : 210} height={centre ? 120 : 80} rx={20}
+                    <rect x={r.x - (centre ? 170 : 105)} y={r.y - (centre ? 34 : 26)} width={centre ? 340 : 210} height={centre ? 104 : 48} rx={20}
                       fill={on ? "var(--paper)" : "transparent"} stroke={on ? "var(--ink)" : "none"} strokeWidth={2} />
-                    <text x={r.x} y={r.y - 8} textAnchor="middle" fontFamily="var(--font-serif)" fontWeight="700" fontSize={centre ? 38 : 26} fill="var(--ink)">
-                      {r.sets.map(letterOf).join("+")} =
-                    </text>
-                    <text x={r.x} y={r.y + (centre ? 34 : 24)} textAnchor="middle" fontFamily="var(--font-serif)" fontSize={centre ? 38 : 26} letterSpacing="3" fill="var(--ink)">
+                    
+                    <text x={r.x} y={r.y + (centre ? 10 : 8)} textAnchor="middle" fontFamily="var(--font-serif)" fontSize={centre ? 38 : 26} letterSpacing="3" fill="var(--ink)">
                       {r.name.toUpperCase()}
                     </text>
-                    {centre && <text x={r.x} y={r.y + 70} textAnchor="middle" fontFamily="var(--font-serif)" fontStyle="italic" fontWeight="700" fontSize="30" fill="var(--ink)">work worth doing</text>}
+                    {centre && <text x={r.x} y={r.y + 52} textAnchor="middle" fontFamily="var(--font-serif)" fontStyle="italic" fontWeight="700" fontSize="30" fill="var(--ink)">work worth doing</text>}
                   </g>
                 );
               })}
@@ -96,7 +94,7 @@ function Table() {
                 const el = ellipses.find((x) => x.c === c)!;
                 return (
                   <div key={c} className="dot-grid rounded-2xl border border-border p-5">
-                    <h3 className="text-2xl">[{el.letter}] {c}</h3>
+                    <h3 className="text-2xl">{c}</h3>
                     <p className="text-sm text-muted-foreground">{el.label.charAt(0) + el.label.slice(1).toLowerCase()}</p>
                     {e.length ? (
                       <ul className="mt-3 grid gap-1.5">{e.map((x, i) => <li key={i}>✿ {x}</li>)}</ul>
