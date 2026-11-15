@@ -1,3 +1,4 @@
+import { pageHead } from "@/lib/seo";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Shell } from "@/components/Shell";
 import { FieldView } from "@/components/Fields";
@@ -5,16 +6,16 @@ import { steps } from "@/content/journey";
 import { setStepFlag, useJournal } from "@/lib/journal";
 
 export const Route = createFileRoute("/step/$id")({
-  staticData: { sitemap: true },
+  staticData: { sitemap: false },
   loader: ({ params }) => {
     const step = steps.find((s) => s.id === params.id);
     if (!step) throw notFound();
     return { title: step.title, why: step.why };
   },
-  head: ({ loaderData }) => {
+  head: ({ loaderData, params }) => {
     const t = loaderData ? `${loaderData.title} · Work Worth Doing` : "Step · Work Worth Doing";
     const d = loaderData?.why ?? "A step on the path to work worth doing.";
-    return { meta: [{ title: t }, { name: "description", content: d }, { property: "og:title", content: t }, { property: "og:description", content: d }, { property: "og:type", content: "article" }, { name: "twitter:card", content: "summary_large_image" }] };
+    return pageHead(`/step/${params.id}`, t, d);
   },
   component: StepPage,
 });

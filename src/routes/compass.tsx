@@ -1,3 +1,4 @@
+import { pageHead } from "@/lib/seo";
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Shell } from "@/components/Shell";
@@ -5,8 +6,8 @@ import { copy } from "@/content/journey";
 import { updateJournal, useJournal } from "@/lib/journal";
 
 export const Route = createFileRoute("/compass")({
-  staticData: { sitemap: true },
-  head: () => ({ meta: [{ title: "The Compass Log · Work Worth Doing" }, { name: "description", content: "Log each small experiment and notice whether it moves you toward or away from meaning." }, { property: "og:title", content: "The Compass Log · Work Worth Doing" }, { property: "og:description", content: "Log each small experiment and notice whether it moves you toward or away from meaning." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }),
+  staticData: { sitemap: false },
+  head: () => pageHead("/compass", "The Compass Log · Work Worth Doing", "Log each small experiment and notice whether it moves you toward or away from meaning.", false),
   component: Compass,
 });
 

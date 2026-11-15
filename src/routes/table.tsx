@@ -1,3 +1,4 @@
+import { pageHead } from "@/lib/seo";
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
@@ -7,8 +8,8 @@ import { copy, type Circle } from "@/content/journey";
 import { circleEntries, useJournal } from "@/lib/journal";
 
 export const Route = createFileRoute("/table")({
-  staticData: { sitemap: true },
-  head: () => ({ meta: [{ title: "The Design Table · Work Worth Doing" }, { name: "description", content: "A four circle design tool filled with your own words: Love, Skill, Value and Problem." }, { property: "og:title", content: "The Design Table · Work Worth Doing" }, { property: "og:description", content: "A four circle design tool filled with your own words: Love, Skill, Value and Problem." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }),
+  staticData: { sitemap: false },
+  head: () => pageHead("/table", "The Design Table · Work Worth Doing", "A four circle design tool filled with your own words: Love, Skill, Value and Problem.", false),
   component: Table,
 });
 

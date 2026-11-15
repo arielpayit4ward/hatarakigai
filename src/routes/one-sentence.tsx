@@ -1,3 +1,4 @@
+import { pageHead } from "@/lib/seo";
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Shell } from "@/components/Shell";
@@ -5,8 +6,8 @@ import { copy, ESSAY_URL } from "@/content/journey";
 import { updateJournal, useJournal } from "@/lib/journal";
 
 export const Route = createFileRoute("/one-sentence")({
-  staticData: { sitemap: true },
-  head: () => ({ meta: [{ title: "One Sentence · Work Worth Doing" }, { name: "description", content: "In one sentence, what makes work feel worth doing, for you?" }, { property: "og:title", content: "One Sentence · Work Worth Doing" }, { property: "og:description", content: "In one sentence, what makes work feel worth doing, for you?" }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }),
+  staticData: { sitemap: false },
+  head: () => pageHead("/one-sentence", "One Sentence · Work Worth Doing", "In one sentence, what makes work feel worth doing, for you?", false),
   component: OneSentence,
 });
 

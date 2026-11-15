@@ -82,9 +82,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Work Worth Doing" },
-      { name: "description", content: "A hatarakigai companion to the essay How To Find Work Worth Doing." },
-      { name: "author", content: "Sarah, Seeking Ikigai" },
+      { name: "author", content: "Sarah Ennett, Seeking Ikigai" },
+      { name: "theme-color", content: "#3D6661" },
+      { property: "og:site_name", content: "Seeking Ikigai" },
+      { property: "og:locale", content: "en_GB" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
