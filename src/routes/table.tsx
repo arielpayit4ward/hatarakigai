@@ -48,7 +48,7 @@ function Table() {
         <p className="mt-3 max-w-2xl text-lg">{copy.table.intro}</p>
         <div className="mt-8 grid gap-8">
           <div>
-            <svg viewBox="80 90 1360 1080" className="mx-auto w-full max-w-3xl" role="group" aria-label="The Work Worth Doing Venn diagram, four ellipses with all fifteen overlaps">
+            <svg viewBox="80 90 1360 1120" className="mx-auto w-full max-w-3xl" role="group" aria-label="The Work Worth Doing Venn diagram, four ellipses with all fifteen overlaps">
               {ellipses.map((e) => (
                 <ellipse key={e.c} cx={e.cx} cy={e.cy} rx={e.rx} ry={e.ry} transform={`rotate(${e.rot} ${e.cx} ${e.cy})`}
                   fill={e.color} fillOpacity={0.32} stroke="var(--ink)" strokeOpacity={0.5} strokeWidth={2} />
