@@ -6,7 +6,7 @@ export const SITE_URL = "https://www.seekingikigai.online";
 export const WORKBOOK_URL = "#workbook-coming-soon"; // placeholder for the companion workbook
 
 // The AI prompt offered in step 14, Synthesise and Choose.
-export const SARAH_PPS_PROMPT = `I'm working out my hatarakigai, work worth doing, using the framework: what I love, what I'm good at, what I can be paid for and what the world needs. Attached are photos of my journalling on this: my joys, labels and values; my strengths; the problems I care about; what I could be paid for; and my real constraints. (If you've only done some please note which elements are still missing.)
+export const SARAH_PPS_PROMPT = `I'm working out my hatarakigai, work worth doing, using the framework: what I love, what I'm good at, what I can be paid for and what the world needs. Above are some of our reflections: my joys, labels and values; my strengths; the problems I care about; what I could be paid for; and my real constraints. (If you've only done some please note which elements are still missing.)
 
 Please don't tell me what my purpose is, instead:
 
