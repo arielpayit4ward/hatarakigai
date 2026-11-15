@@ -42,9 +42,9 @@ function Table() {
       <section className="py-6">
         <h1 className="text-5xl">{copy.table.title}</h1>
         <p className="mt-3 max-w-2xl text-lg">{copy.table.intro}</p>
-        <div className="mt-8 grid items-start gap-8 lg:grid-cols-[1.1fr_1fr]">
+        <div className="mt-8 grid gap-8">
           <div>
-            <svg viewBox="80 90 1360 1080" className="w-full" role="group" aria-label="The Work Worth Doing Venn diagram, four ellipses with all fifteen overlaps">
+            <svg viewBox="80 90 1360 1080" className="mx-auto w-full max-w-3xl" role="group" aria-label="The Work Worth Doing Venn diagram, four ellipses with all fifteen overlaps">
               {ellipses.map((e) => (
                 <ellipse key={e.c} cx={e.cx} cy={e.cy} rx={e.rx} ry={e.ry} transform={`rotate(${e.rot} ${e.cx} ${e.cy})`}
                   fill={e.color} fillOpacity={0.32} stroke="var(--ink)" strokeOpacity={0.5} strokeWidth={2} />
