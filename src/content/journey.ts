@@ -5,8 +5,20 @@ export const ESSAY_URL = "https://www.seekingikigai.online/p/how-to-find-work-wo
 export const SITE_URL = "https://www.seekingikigai.online";
 export const WORKBOOK_URL = "#workbook-coming-soon"; // placeholder for the companion workbook
 
-// Sarah: paste your AI prompt between the backticks below.
-export const SARAH_PPS_PROMPT = `[SARAH_PPS_PROMPT: paste your prompt here]`;
+// The AI prompt offered in step 14, Synthesise and Choose.
+export const SARAH_PPS_PROMPT = `I'm working out my hatarakigai, work worth doing, using the framework: what I love, what I'm good at, what I can be paid for and what the world needs. Attached are photos of my journalling on this: my joys, labels and values; my strengths; the problems I care about; what I could be paid for; and my real constraints. (If you've only done some please note which elements are still missing.)
+
+Please don't tell me what my purpose is, instead:
+
+1. Read across all of it and reflect back the strongest patterns and threads you see, the connections between my loves, strengths, problems and values that I might be too close to notice.
+
+2. Suggest 6 concrete pathways that combine these into meaningful work; a mix of career moves, ways to reshape my current role and entrepreneurial or side project ideas.
+
+3. For each, give an honest read on how close to ikigai it might feel for me, and what would need to be true, skills, money, time, to make it realistic within my constraints.
+
+4. Point out anything that seems to light me up more than I've realised, and any tension worth sitting with.
+
+Keep me in the driving seat: offer patterns and possibilities, not a verdict. I'll decide what resonates and choose one small experiment to try first.`;
 
 export type Mode = "Reflect" | "Check" | "Test";
 export type Circle = "Love" | "Skill" | "Value" | "Problem";
