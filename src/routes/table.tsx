@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
+import { generateIdea } from "@/lib/idea.functions";
 import { Shell } from "@/components/Shell";
 import { copy, type Circle } from "@/content/journey";
 import { circleEntries, useJournal } from "@/lib/journal";
@@ -79,6 +81,7 @@ function Table() {
                 );
               })}
             </svg>
+            <IdeaSpark />
             <div className="mt-4 flex flex-wrap gap-2">
               {regions.map((r) => (
                 <button key={r.name} type="button" aria-pressed={same(r.sets)} onClick={() => pick(r.sets, r.name)}
@@ -107,5 +110,62 @@ function Table() {
         </div>
       </section>
     </Shell>
+  );
+}
+
+type IdeaPick = { circle: Circle; text: string };
+function IdeaSpark() {
+  const j = useJournal();
+  const ask = useServerFn(generateIdea);
+  const [open, setOpen] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [picks, setPicks] = useState<IdeaPick[]>([]);
+  const [idea, setIdea] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const filled = ellipses.map((e) => ({ c: e.c, items: circleEntries(j, e.c) })).filter((x) => x.items.length);
+
+  const roll = async () => {
+    setOpen(true); setIdea(null); setError(null);
+    if (filled.length < 2) { setPicks([]); setError(copy.idea.needMore); return; }
+    const shuffled = [...filled].sort(() => Math.random() - 0.5);
+    const n = 2 + Math.floor(Math.random() * (Math.min(4, shuffled.length) - 1));
+    const chosen = shuffled.slice(0, n).map((x) => ({ circle: x.c, text: x.items[Math.floor(Math.random() * x.items.length)]! }));
+    setPicks(chosen); setBusy(true);
+    try {
+      const r = await ask({ data: { picks: chosen } });
+      setIdea(r.idea); setError(r.error);
+    } catch { setError("Something went wrong brewing that idea. Try again in a moment."); }
+    finally { setBusy(false); }
+  };
+
+  return (
+    <div className="mt-6">
+      {!open && (
+        <div className="text-center">
+          <button type="button" className="btn" onClick={roll}>✿ {copy.idea.button}</button>
+          <p className="mx-auto mt-2 max-w-md text-sm text-muted-foreground">{copy.idea.note}</p>
+        </div>
+      )}
+      {open && (
+        <div role="region" aria-live="polite" aria-label="Your AI idea" className="journal-card fade-in mx-auto max-w-2xl p-6"
+          style={{ background: "color-mix(in oklab, var(--blossom) 14%, var(--paper))" }}>
+          {picks.length > 0 && (
+            <div className="mb-3">
+              <p className="text-xs uppercase tracking-widest text-muted-foreground">{copy.idea.using}</p>
+              <div className="mt-1 flex flex-wrap gap-2">
+                {picks.map((p, i) => <span key={i} className="ingredient"><strong>{p.circle}:</strong> {p.text}</span>)}
+              </div>
+            </div>
+          )}
+          {busy && <p className="font-serif text-xl italic text-ink">{copy.idea.brewing}</p>}
+          {idea && <p className="font-serif text-xl leading-relaxed text-ink">{idea}</p>}
+          {error && <p className="text-foreground">{error}</p>}
+          <div className="mt-5 flex flex-wrap gap-3">
+            <button type="button" className="btn" onClick={roll} disabled={busy}>{copy.idea.reroll}</button>
+            <button type="button" className="btn-ghost" onClick={() => { setOpen(false); setIdea(null); setError(null); }}>{copy.idea.dismiss}</button>
+          </div>
+        </div>
+      )}
+    </div>
   );
 }
