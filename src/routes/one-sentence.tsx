@@ -2,8 +2,10 @@ import { pageHead } from "@/lib/seo";
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Shell } from "@/components/Shell";
+import { Button } from "@/components/ui/button";
+import { Trash2 } from "lucide-react";
 import { copy, ESSAY_URL } from "@/content/journey";
-import { updateJournal, useJournal } from "@/lib/journal";
+import { deleteSentence, updateJournal, useJournal } from "@/lib/journal";
 
 export const Route = createFileRoute("/one-sentence")({
   staticData: { sitemap: false },
@@ -26,7 +28,17 @@ function OneSentence() {
         </form>
         <ul className="mt-10 grid gap-3">
           {[...j.words].reverse().map((x, i) => (
-            <li key={i} className="journal-card p-4"><span className="font-serif text-2xl italic text-ink">{x.word}</span><span className="mt-1 block text-sm text-muted-foreground">{x.date}</span></li>
+            <li key={j.words.length - 1 - i} className="journal-card flex items-start gap-3 p-4">
+              <div className="min-w-0 flex-1">
+                <span className="break-words font-serif text-2xl italic text-ink">{x.word}</span>
+                <span className="mt-1 block text-sm text-muted-foreground">{x.date}</span>
+              </div>
+              <Button type="button" variant="ghost" size="icon" className="shrink-0 text-muted-foreground hover:text-destructive"
+                aria-label={copy.oneWord.delete} title={copy.oneWord.delete}
+                onClick={() => { if (confirm(copy.oneWord.confirmDelete)) deleteSentence(j.words.length - 1 - i); }}>
+                <Trash2 aria-hidden="true" />
+              </Button>
+            </li>
           ))}
         </ul>
         <a href={ESSAY_URL + "/comments"} target="_blank" rel="noreferrer" className="btn-ghost mt-8">{copy.oneWord.share} ↗</a>
