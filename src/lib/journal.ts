@@ -136,7 +136,7 @@ export function toMarkdown(j: Journal): string {
     parts.push("# Compass Log", "");
     j.compass.forEach((c) => parts.push(`## ${c.date}`, `What I did: ${c.did}`, `What happened: ${c.happened}`, `Toward or away: ${c.dial}`, ""));
   }
-  if (j.words.length) parts.push("# One Word", ...j.words.map((w) => `- ${w.date}: ${w.word}`));
+  if (j.words.length) parts.push("# One Sentence", ...j.words.map((w) => `- ${w.date}: ${w.word}`));
   return parts.join("\n");
 }
 
