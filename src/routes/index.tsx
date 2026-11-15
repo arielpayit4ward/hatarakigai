@@ -1,3 +1,4 @@
+import { pageHead, HOME_TITLE, HOME_DESCRIPTION, webApplication } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Shell } from "@/components/Shell";
 import { GardenPath } from "@/components/GardenPath";
@@ -6,7 +7,10 @@ import sprig from "@/assets/blossom-sprig.png";
 
 export const Route = createFileRoute("/")({
   staticData: { sitemap: true },
-  head: () => ({ meta: [{ title: "Work Worth Doing: a hatarakigai companion" }, { name: "description", content: "Walk through twelve exercises and two closing steps to find work worth doing, privately, at your own pace." }, { property: "og:title", content: "Work Worth Doing: a hatarakigai companion" }, { property: "og:description", content: "Walk through twelve exercises and two closing steps to find work worth doing, privately, at your own pace." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }, { property: "og:image", content: "https://hatarakigai.lovable.app/__l5e/assets-v1/f5c86450-3b05-4c10-9909-7703f9c4f431/blossom-share.jpg" }, { name: "twitter:image", content: "https://hatarakigai.lovable.app/__l5e/assets-v1/f5c86450-3b05-4c10-9909-7703f9c4f431/blossom-share.jpg" }] }),
+  head: () => ({
+    ...pageHead("/", HOME_TITLE, HOME_DESCRIPTION, true),
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(webApplication) }],
+  }),
   component: Home,
 });
 

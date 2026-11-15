@@ -1,9 +1,10 @@
+import { pageHead } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Shell } from "@/components/Shell";
 
 export const Route = createFileRoute("/privacy")({
   staticData: { sitemap: true },
-  head: () => ({ meta: [{ title: "Privacy · Work Worth Doing" }, { name: "description", content: "Everything you write stays in your own browser. No accounts, no server, no analytics on your answers." }, { property: "og:title", content: "Privacy · Work Worth Doing" }, { property: "og:description", content: "Everything you write stays in your own browser. No accounts, no server, no analytics on your answers." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }),
+  head: () => pageHead("/privacy", "Privacy · Work Worth Doing", "Your answers stay in this browser on this device. No accounts. Only the optional AI idea sends up to four selected answers to an AI service.", true),
   component: Privacy,
 });
 
