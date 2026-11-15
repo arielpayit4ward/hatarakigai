@@ -3,7 +3,7 @@ import shareImage from "@/assets/work-worth-doing-share.jpg.asset.json";
 
 export const PUBLIC_URL = "https://hatarakigai.lovable.app";
 export const HOME_TITLE = "Work Worth Doing | A Hatarakigai Companion by Seeking Ikigai";
-export const HOME_DESCRIPTION = "Twelve gentle exercises to help you find your hatarakigai, work worth doing. Look inward, check outside yourself, then test it small. Free and private.";
+export const HOME_DESCRIPTION = "Fourteen gentle exercises to help you find your hatarakigai, work worth doing. Look inward, check outside yourself, then test it small. Free and private.";
 
 export const SHARE_IMAGE = new URL(shareImage.url, PUBLIC_URL).href;
 
