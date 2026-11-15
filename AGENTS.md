@@ -28,3 +28,7 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+- All visible step wording lives in src/content/journey.ts; components read from it so the author can edit copy in one place.
+- Journal data is stored only in browser localStorage via src/lib/journal.ts (no server, no accounts) because privacy is a core promise.
