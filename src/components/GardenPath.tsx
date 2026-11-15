@@ -38,7 +38,7 @@ export function GardenPath() {
               </span>
               <span className="leading-tight">
                 <span className="block font-serif text-lg font-semibold text-ink group-hover:underline">{s.title}</span>
-                <span className="text-xs uppercase tracking-wider text-muted-foreground">{s.mode}{filled ? " · in watercolour" : ""}</span>
+                <span className="text-xs uppercase tracking-wider text-muted-foreground">{s.mode}</span>
               </span>
             </Link>
           </li>
