@@ -228,6 +228,15 @@ export const copy = {
     question: "In one sentence, what makes work feel worth doing, for you?",
     share: "Share your sentence in the essay comments",
   },
+  idea: {
+    button: "Give me an AI idea",
+    note: "I pick up to four of your answers at random and ask an AI to spin them into one small idea. Just a spark to play with... never a verdict on your purpose.",
+    needMore: "Write a few answers in at least two of the circles first, and I will have something to mix.",
+    using: "Mixed from",
+    reroll: "Another idea",
+    dismiss: "Close",
+    brewing: "Brewing an idea...",
+  },
   table: {
     title: "The Design Table",
     intro: "This Venn diagram is a tool for designing work, not a map of your purpose. Your ikigai is something you feel. Here, your own words gather into four ellipses, so every one of the fifteen overlaps can be shown. Tap any space to see those circles side by side.",
