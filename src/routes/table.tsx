@@ -24,8 +24,8 @@ const regions: Region[] = [
   { sets: ["Skill", "Value", "Problem"], name: "Foundation", x: 950, y: 550 },
   { sets: ["Love", "Problem"], name: "Mission", x: 505, y: 790 },
   { sets: ["Skill", "Value"], name: "Profession", x: 1055, y: 805 },
-  { sets: ["Love", "Skill", "Problem"], name: "Elevation", x: 650, y: 895 },
-  { sets: ["Love", "Skill", "Value"], name: "Inspiration", x: 905, y: 895 },
+  { sets: ["Love", "Skill", "Problem"], name: "Elevation", x: 625, y: 840 },
+  { sets: ["Love", "Skill", "Value"], name: "Inspiration", x: 890, y: 840 },
   { sets: ["Love", "Skill"], name: "Passion", x: 775, y: 1025 },
   { sets: ["Love", "Skill", "Value", "Problem"], name: "Hatarakigai", x: 775, y: 720 },
 ];
