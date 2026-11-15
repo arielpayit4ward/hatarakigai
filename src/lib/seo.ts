@@ -1,11 +1,11 @@
 import { ESSAY_URL, SITE_URL } from "@/content/journey";
+import shareImage from "@/assets/work-worth-doing-share.jpg.asset.json";
 
 export const PUBLIC_URL = "https://hatarakigai.lovable.app";
 export const HOME_TITLE = "Work Worth Doing | A Hatarakigai Companion by Seeking Ikigai";
 export const HOME_DESCRIPTION = "Twelve gentle exercises to help you find your hatarakigai, work worth doing. Look inward, check outside yourself, then test it small. Free and private.";
 
-// Retain the working blossom preview until Sarah supplies her requested og-image.png.
-export const SHARE_IMAGE = `${PUBLIC_URL}/__l5e/assets-v1/f5c86450-3b05-4c10-9909-7703f9c4f431/blossom-share.jpg`;
+export const SHARE_IMAGE = new URL(shareImage.url, PUBLIC_URL).href;
 
 export function pageHead(path: string, title: string, description: string, indexable = false) {
   const url = `${PUBLIC_URL}${path}`;
@@ -27,9 +27,9 @@ export function pageHead(path: string, title: string, description: string, index
         { property: "og:image", content: SHARE_IMAGE },
         { property: "og:image:width", content: "1200" },
         { property: "og:image:height", content: "630" },
-        { property: "og:image:alt", content: "Watercolour cherry blossom and bluebells for Work Worth Doing" },
+        { property: "og:image:alt", content: "Work Worth Doing, a hatarakigai companion by Seeking Ikigai, with watercolour blossoms, stepping stones and bluebells" },
         { name: "twitter:image", content: SHARE_IMAGE },
-        { name: "twitter:image:alt", content: "Watercolour cherry blossom and bluebells for Work Worth Doing" },
+        { name: "twitter:image:alt", content: "Work Worth Doing, a hatarakigai companion by Seeking Ikigai, with watercolour blossoms, stepping stones and bluebells" },
       ] : []),
     ],
     links: [{ rel: "canonical", href: url }],
