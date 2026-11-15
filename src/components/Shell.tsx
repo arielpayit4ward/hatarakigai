@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
-import { SITE_URL, WORKBOOK_URL } from "@/content/journey";
+import { SITE_URL } from "@/content/journey";
 
 const nav = [
   { to: "/", label: "Path" },
@@ -30,7 +30,6 @@ export function Shell({ children }: { children: ReactNode }) {
           <p>Made with care by Sarah, Seeking Ikigai</p>
           <div className="flex flex-wrap gap-4">
             <a href={SITE_URL} className="underline">seekingikigai.online</a>
-            <a href={WORKBOOK_URL} className="underline">Companion workbook</a>
             <Link to="/privacy" className="underline">Privacy</Link>
           </div>
         </div>
