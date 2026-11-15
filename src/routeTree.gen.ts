@@ -15,6 +15,7 @@ import { Route as JournalRouteImport } from './routes/journal'
 import { Route as OneSentenceRouteImport } from './routes/one-sentence'
 import { Route as OneWordRouteImport } from './routes/one-word'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TableRouteImport } from './routes/table'
 import { Route as ThresholdRouteImport } from './routes/threshold'
 import { Route as StepIdRouteImport } from './routes/step.$id'
@@ -49,6 +50,11 @@ const PrivacyRoute = PrivacyRouteImport.update({
   path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TableRoute = TableRouteImport.update({
   id: '/table',
   path: '/table',
@@ -72,6 +78,7 @@ export interface FileRoutesByFullPath {
   '/one-sentence': typeof OneSentenceRoute
   '/one-word': typeof OneWordRoute
   '/privacy': typeof PrivacyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/table': typeof TableRoute
   '/threshold': typeof ThresholdRoute
   '/step/$id': typeof StepIdRoute
@@ -83,6 +90,7 @@ export interface FileRoutesByTo {
   '/one-sentence': typeof OneSentenceRoute
   '/one-word': typeof OneWordRoute
   '/privacy': typeof PrivacyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/table': typeof TableRoute
   '/threshold': typeof ThresholdRoute
   '/step/$id': typeof StepIdRoute
@@ -95,6 +103,7 @@ export interface FileRoutesById {
   '/one-sentence': typeof OneSentenceRoute
   '/one-word': typeof OneWordRoute
   '/privacy': typeof PrivacyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/table': typeof TableRoute
   '/threshold': typeof ThresholdRoute
   '/step/$id': typeof StepIdRoute
@@ -108,6 +117,7 @@ export interface FileRouteTypes {
     | '/one-sentence'
     | '/one-word'
     | '/privacy'
+    | '/sitemap.xml'
     | '/table'
     | '/threshold'
     | '/step/$id'
@@ -119,6 +129,7 @@ export interface FileRouteTypes {
     | '/one-sentence'
     | '/one-word'
     | '/privacy'
+    | '/sitemap.xml'
     | '/table'
     | '/threshold'
     | '/step/$id'
@@ -130,6 +141,7 @@ export interface FileRouteTypes {
     | '/one-sentence'
     | '/one-word'
     | '/privacy'
+    | '/sitemap.xml'
     | '/table'
     | '/threshold'
     | '/step/$id'
@@ -142,6 +154,7 @@ export interface RootRouteChildren {
   OneSentenceRoute: typeof OneSentenceRoute
   OneWordRoute: typeof OneWordRoute
   PrivacyRoute: typeof PrivacyRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TableRoute: typeof TableRoute
   ThresholdRoute: typeof ThresholdRoute
   StepIdRoute: typeof StepIdRoute
@@ -191,6 +204,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/table': {
       id: '/table'
       path: '/table'
@@ -222,6 +242,7 @@ const rootRouteChildren: RootRouteChildren = {
   OneSentenceRoute: OneSentenceRoute,
   OneWordRoute: OneWordRoute,
   PrivacyRoute: PrivacyRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   TableRoute: TableRoute,
   ThresholdRoute: ThresholdRoute,
   StepIdRoute: StepIdRoute,
