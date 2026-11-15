@@ -10,33 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ThresholdRouteImport } from './routes/threshold'
+import { Route as StepIdRouteImport } from './routes/step.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ThresholdRoute = ThresholdRouteImport.update({
+  id: '/threshold',
+  path: '/threshold',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StepIdRoute = StepIdRouteImport.update({
+  id: '/step/$id',
+  path: '/step/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/threshold': typeof ThresholdRoute
+  '/step/$id': typeof StepIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/threshold': typeof ThresholdRoute
+  '/step/$id': typeof StepIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/threshold': typeof ThresholdRoute
+  '/step/$id': typeof StepIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/threshold' | '/step/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/threshold' | '/step/$id'
+  id: '__root__' | '/' | '/threshold' | '/step/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ThresholdRoute: typeof ThresholdRoute
+  StepIdRoute: typeof StepIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +68,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/threshold': {
+      id: '/threshold'
+      path: '/threshold'
+      fullPath: '/threshold'
+      preLoaderRoute: typeof ThresholdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/step/$id': {
+      id: '/step/$id'
+      path: '/step/$id'
+      fullPath: '/step/$id'
+      preLoaderRoute: typeof StepIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ThresholdRoute: ThresholdRoute,
+  StepIdRoute: StepIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
