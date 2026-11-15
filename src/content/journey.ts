@@ -59,7 +59,15 @@ export const threshold = {
       "Being in the here and now",
     ],
     builder:
-      "Now, if you fancy it... choose a five letter word that means something to you, and write your own pillar for each letter. Mine changes every few months.",
+      "Now, if you fancy it... choose a five letter word that means something to you, and write your own pillar for each letter. Here is mine, BLOOM:",
+    example: [
+      { letter: "B", text: "Begin Small" },
+      { letter: "L", text: "Let GO" },
+      { letter: "O", text: "Open to harmony" },
+      { letter: "O", text: "Observe tiny joys" },
+      { letter: "M", text: "Mindful presence" },
+    ],
+    exampleAfter: "Now it is your turn...",
   },
 };
 

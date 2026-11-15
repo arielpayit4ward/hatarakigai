@@ -29,6 +29,12 @@ function Threshold() {
           </ol>
           <p className="mt-3 text-sm text-muted-foreground">{threshold.warmup.credit}</p>
           <p className="mt-6">{threshold.warmup.builder}</p>
+          <ul className="mt-3 grid gap-1 rounded-2xl border border-border bg-paper p-4" aria-label="Sarah's BLOOM example">
+            {threshold.warmup.example.map((e, i) => (
+              <li key={i} className="flex items-baseline gap-3"><span className="w-6 font-serif text-2xl font-semibold text-ink">{e.letter}</span>{e.text}</li>
+            ))}
+          </ul>
+          <p className="mt-4">{threshold.warmup.exampleAfter}</p>
           <input className="field mt-3 max-w-xs font-serif text-xl uppercase tracking-[0.3em]" maxLength={5} value={word}
             aria-label="Your five letter word" placeholder="Word" onChange={(e) => setA({ word: e.target.value })} />
           <div className="mt-4 grid gap-2">
