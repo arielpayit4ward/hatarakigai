@@ -216,9 +216,9 @@ export const copy = {
     dial: ["Far away", "A little away", "Unsure", "A little toward", "Strongly toward"],
   },
   oneWord: {
-    title: "One Word",
-    question: "In one word, what makes work feel worth doing, for you?",
-    share: "Share your word in the essay comments",
+    title: "One Sentence",
+    question: "In one sentence, what makes work feel worth doing, for you?",
+    share: "Share your sentence in the essay comments",
   },
   table: {
     title: "The Design Table",
