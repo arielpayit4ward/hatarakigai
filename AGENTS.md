@@ -32,3 +32,4 @@ use the editor.
 ## Project rules
 - All visible step wording lives in src/content/journey.ts; components read from it so the author can edit copy in one place.
 - Journal data is stored only in browser localStorage via src/lib/journal.ts (no accounts); the only server call is the opt in AI idea in src/lib/idea.functions.ts, which receives just the randomly picked answers, because privacy is a core promise.
+- Leaf routes use the browser safe src/lib/seo.ts helper for self referencing metadata; reflection routes default to noindex and sitemap exclusion so personal writing screens are not advertised to search engines.
